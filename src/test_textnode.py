@@ -14,10 +14,16 @@ class TestTextNode(unittest.TestCase):
         node2 = TextNode("This is a text node", "bold")
         self.assertNotEqual(node,node2)
 
+    def test_not_eq2(self):
+        node = TextNode("This is a text node", "italic")
+        node2 = TextNode("This is a text node2", "bold")
+        self.assertNotEqual(node,node2)
+
     def test_not_eq_with_url(self):
         node = TextNode("This is a text node", "bold", 'https://www.boot.dev')
         node2 = TextNode("This is a text node", "bold", None)
         self.assertNotEqual(node,node2)
+
 
 if __name__ == "__main__":
     unittest.main()
