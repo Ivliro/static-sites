@@ -1,5 +1,5 @@
 import unittest
-from block_markdown import markdown_to_blocks
+from block_markdown import markdown_to_blocks, block_to_block_type
 
 class TestBlockMarkdown(unittest.TestCase):
     def test_m2b_1(self):
@@ -32,6 +32,20 @@ This is a paragraph of text. It has some **bold** and *italic* words inside of i
                                     'This is a paragraph of text. It has some **bold** and *italic* words inside of it.', 
                                     '* This is a list item\n* This is another list item'
                                 ])
+
+    def test_block_to_block_types(self):
+         block = '# heading'
+         self.assertEqual(block_to_block_type(block),'heading')
+         block = '```\ncode\n```'
+         self.assertEqual(block_to_block_type(block),'code')
+         block = '>This is\n>a quote.'
+         self.assertEqual(block_to_block_type(block),'quote')
+         block = '* list item 1\n- list item 2'
+         self.assertEqual(block_to_block_type(block),'unordered_list')
+         block = '1. list item 1\n2. list item 2'
+         self.assertEqual(block_to_block_type(block),'ordered_list')
+         block = 'paragraph'
+         self.assertEqual(block_to_block_type(block),'paragraph')
 
 
 
