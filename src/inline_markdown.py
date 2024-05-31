@@ -113,4 +113,4 @@ node = TextNode(
            "This is text with a [link](https://boot.dev) and [another link](https://blog.boot.dev) with text that follows",
             'text',
 )
-print(split_nodes_link([node]))
+#print(split_nodes_link([node]))
