@@ -1,10 +1,14 @@
-from textnode import TextNode
+import os
+import shutil
 
-
-print('hello world')
+from copystatic import copy_recursive
 
 def main():
-    priklad = TextNode('This is a text node','bold','https://www.boot.dev')
-    print(priklad)
+    print('deleting public')
+    if os.path.exists('./public'):
+        shutil.rmtree('./public')
+
+    print('copy static into public')
+    copy_recursive("./static",'./public')
 
 main()
