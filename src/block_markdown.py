@@ -1,5 +1,5 @@
 import re
-from htmlnode import ParentNode,LeafNode
+from htmlnode import ParentNode
 from inline_markdown import text_to_textnodes
 from textnode import text_node_to_html_node
 
